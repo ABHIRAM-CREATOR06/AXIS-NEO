@@ -30,7 +30,21 @@ class MainActivity : AppCompatActivity() {
 
         // Show default fragment
         if (savedInstanceState == null) {
-            showFragment("scan")
+            navigateTo("scan")
+        }
+    }
+
+    private fun navigateTo(tag: String) {
+        val menuItemId = when (tag) {
+            "scan" -> R.id.nav_scan
+            "history" -> R.id.nav_history
+            "settings" -> R.id.nav_settings
+            else -> R.id.nav_scan
+        }
+        if (binding.bottomNav.selectedItemId != menuItemId) {
+            binding.bottomNav.selectedItemId = menuItemId
+        } else {
+            showFragment(tag)
         }
     }
 
@@ -42,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSettings.setOnClickListener {
-            showFragment("settings")
+            navigateTo("settings")
         }
     }
 
@@ -80,15 +94,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer, fragment, tag)
             .commit()
 
-        // Update bottom nav selection
-        val menuItemId = when (tag) {
-            "scan" -> R.id.nav_scan
-            "history" -> R.id.nav_history
-            "settings" -> R.id.nav_settings
-            else -> R.id.nav_scan
-        }
-        binding.bottomNav.selectedItemId = menuItemId
-
         // Update title based on current fragment
         updateToolbarForFragment(tag)
     }
@@ -101,12 +106,12 @@ class MainActivity : AppCompatActivity() {
             }
             "history" -> {
                 binding.btnBack.visibility = View.VISIBLE
-                binding.btnBack.setOnClickListener { showFragment("scan") }
+                binding.btnBack.setOnClickListener { navigateTo("scan") }
                 binding.btnSettings.visibility = View.GONE
             }
             "settings" -> {
                 binding.btnBack.visibility = View.VISIBLE
-                binding.btnBack.setOnClickListener { showFragment("scan") }
+                binding.btnBack.setOnClickListener { navigateTo("scan") }
                 binding.btnSettings.visibility = View.GONE
             }
         }

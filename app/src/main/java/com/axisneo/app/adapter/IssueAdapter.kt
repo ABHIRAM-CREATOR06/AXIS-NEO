@@ -14,6 +14,7 @@ import com.axisneo.app.R
 import com.axisneo.app.data.Issue
 import com.axisneo.app.data.IssueType
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 
 /**
  * Adapter for displaying accessibility issues
@@ -45,7 +46,7 @@ class IssueAdapter(
         private val issueDetail: LinearLayout = itemView.findViewById(R.id.issueDetail)
         private val issueCode: TextView = itemView.findViewById(R.id.issueCode)
         private val issueFix: TextView = itemView.findViewById(R.id.issueFix)
-        private val wcagChips: LinearLayout = itemView.findViewById(R.id.wcagChips)
+        private val wcagChips: ChipGroup = itemView.findViewById(R.id.wcagChips)
 
         fun bind(issue: Issue, isExpanded: Boolean) {
             val context = itemView.context
