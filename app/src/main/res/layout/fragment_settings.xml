@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Section Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_sm">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textColor="@color/md_on_surface_variant"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Settings List -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_md">
+
+        <!-- WCAG Level -->
+        <LinearLayout
+            android:id="@+id/settingWcagLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shield"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wcag_level"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/wcag_level_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/issue_chevron_size"
+                android:layout_height="@dimen/issue_chevron_size"
+                android:src="@drawable/ic_chevron_right"
+                app:tint="@color/md_on_surface_variant"
+                android:contentDescription="@null" />
+
+        </LinearLayout>
+
+        <!-- Contrast Check -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_contrast"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_contrast"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/contrast_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchContrast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+        </LinearLayout>
+
+        <!-- Alt Text Audit -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_image_off"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alt_text_audit"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/alt_text_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchAltText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+        </LinearLayout>
+
+        <!-- Keyboard Navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_keyboard"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keyboard_navigation"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/keyboard_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchKeyboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Dark Theme -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_dark_mode"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dark_theme"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/dark_theme_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchDarkTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Auto-export PDF -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/settings_item_padding">
+
+            <FrameLayout
+                android:layout_width="@dimen/settings_item_icon_size"
+                android:layout_height="@dimen/settings_item_icon_size"
+                android:background="@drawable/bg_settings_icon">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_receipt"
+                    app:tint="@color/md_secondary"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/settings_item_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_export_pdf"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/settings_title_size"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/pdf_subtitle"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/settings_subtitle_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switchPdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- About Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_title"
+            android:textColor="@color/md_on_surface_variant"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_xl">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_text"
+            android:textColor="@color/md_on_surface_variant"
+            android:textSize="@dimen/text_size_body_large"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</LinearLayout>

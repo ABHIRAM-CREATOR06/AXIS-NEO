@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Radii -->
+    <dimen name="radius_xs">4dp</dimen>
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">28dp</dimen>
+    <dimen name="radius_full">50dp</dimen>
+    
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+    
+    <!-- Top App Bar -->
+    <dimen name="app_bar_height">64dp</dimen>
+    <dimen name="icon_button_size">48dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    
+    <!-- Hero Section -->
+    <dimen name="hero_padding_horizontal">16dp</dimen>
+    <dimen name="hero_padding_top">24dp</dimen>
+    
+    <!-- URL Input -->
+    <dimen name="url_input_padding">4dp</dimen>
+    <dimen name="url_input_padding_start">20dp</dimen>
+    
+    <!-- FAB -->
+    <dimen name="fab_height">48dp</dimen>
+    <dimen name="fab_padding_horizontal">20dp</dimen>
+    <dimen name="fab_icon_size">18dp</dimen>
+    
+    <!-- Tabs -->
+    <dimen name="tab_padding_horizontal">16dp</dimen>
+    <dimen name="tab_padding_vertical">12dp</dimen>
+    <dimen name="tab_icon_size">20dp</dimen>
+    <dimen name="tab_badge_size">16dp</dimen>
+    <dimen name="tab_badge_text_size">9sp</dimen>
+    
+    <!-- Score Banner -->
+    <dimen name="score_padding">20dp</dimen>
+    <dimen name="score_ring_size">80dp</dimen>
+    <dimen name="score_ring_stroke">6dp</dimen>
+    <dimen name="score_number_size">22sp</dimen>
+    <dimen name="score_gap">20dp</dimen>
+    
+    <!-- Summary Cards -->
+    <dimen name="summary_card_min_width">110dp</dimen>
+    <dimen name="summary_card_padding">14dp</dimen>
+    <dimen name="summary_count_size">28sp</dimen>
+    <dimen name="summary_label_size">11sp</dimen>
+    
+    <!-- Issue Card -->
+    <dimen name="issue_icon_size">36dp</dimen>
+    <dimen name="issue_icon_inner_size">18dp</dimen>
+    <dimen name="issue_card_padding">14dp</dimen>
+    <dimen name="issue_card_gap">12dp</dimen>
+    <dimen name="issue_chevron_size">20dp</dimen>
+    <dimen name="issue_detail_padding">16dp</dimen>
+    <dimen name="code_snippet_padding">10dp</dimen>
+    
+    <!-- Filter Pills -->
+    <dimen name="filter_pill_padding_vertical">6dp</dimen>
+    <dimen name="filter_pill_padding_horizontal">16dp</dimen>
+    
+    <!-- Bottom Nav -->
+    <dimen name="nav_item_padding_vertical">10dp</dimen>
+    <dimen name="nav_indicator_size">64dp</dimen>
+    <dimen name="nav_icon_size">22dp</dimen>
+    <dimen name="nav_label_size">11sp</dimen>
+    
+    <!-- Dialog -->
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="dialog_handle_width">32dp</dimen>
+    <dimen name="dialog_handle_height">4dp</dimen>
+    <dimen name="dialog_handle_margin">20dp</dimen>
+    <dimen name="dialog_title_size">20sp</dimen>
+    <dimen name="dialog_body_size">14sp</dimen>
+    <dimen name="dialog_button_padding">10dp</dimen>
+    <dimen name="dialog_button_padding_horizontal">24dp</dimen>
+    
+    <!-- Settings -->
+    <dimen name="settings_item_icon_size">40dp</dimen>
+    <dimen name="settings_item_padding">16dp</dimen>
+    <dimen name="settings_item_gap">16dp</dimen>
+    <dimen name="settings_title_size">15sp</dimen>
+    <dimen name="settings_subtitle_size">12sp</dimen>
+    <dimen name="toggle_width">52dp</dimen>
+    <dimen name="toggle_height">32dp</dimen>
+    <dimen name="toggle_thumb_size">24dp</dimen>
+    
+    <!-- History -->
+    <dimen name="history_score_size">44dp</dimen>
+    <dimen name="history_score_text_size">14sp</dimen>
+    <dimen name="history_item_padding">14dp</dimen>
+    <dimen name="history_item_gap">12dp</dimen>
+    <dimen name="history_url_size">12sp</dimen>
+    <dimen name="history_meta_size">11sp</dimen>
+    
+    <!-- Empty State -->
+    <dimen name="empty_icon_size">64dp</dimen>
+    <dimen name="empty_title_size">16sp</dimen>
+    <dimen name="empty_subtitle_size">14sp</dimen>
+    <dimen name="empty_padding_vertical">48dp</dimen>
+    
+    <!-- Section Header -->
+    <dimen name="section_padding_horizontal">16dp</dimen>
+    <dimen name="section_padding_top">16dp</dimen>
+    <dimen name="section_padding_bottom">8dp</dimen>
+    <dimen name="section_title_size">14sp</dimen>
+    <dimen name="section_action_size">14sp</dimen>
+    
+    <!-- Badge -->
+    <dimen name="badge_padding_vertical">2dp</dimen>
+    <dimen name="badge_padding_horizontal">8dp</dimen>
+    <dimen name="badge_text_size">11sp</dimen>
+    
+    <!-- Progress -->
+    <dimen name="progress_height">4dp</dimen>
+    <dimen name="progress_step_text_size">11sp</dimen>
+    
+    <!-- Text Sizes -->
+    <dimen name="text_size_small">11sp</dimen>
+    <dimen name="text_size_body">12sp</dimen>
+    <dimen name="text_size_body_large">13sp</dimen>
+    <dimen name="text_size_title">14sp</dimen>
+    <dimen name="text_size_title_large">15sp</dimen>
+    <dimen name="text_size_headline">16sp</dimen>
+    <dimen name="text_size_display">22sp</dimen>
+</resources>

@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Hero Section - URL Input -->
+    <LinearLayout
+        android:id="@+id/heroSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_lg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_url_label"
+            android:textColor="@color/md_on_surface_variant"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_url_input"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/url_input_padding_start"
+            android:paddingVertical="@dimen/url_input_padding">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_language"
+                app:tint="@color/md_on_surface_variant"
+                android:contentDescription="@null" />
+
+            <EditText
+                android:id="@+id/urlInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="@string/url_hint"
+                android:inputType="textUri"
+                android:paddingHorizontal="@dimen/spacing_sm"
+                android:textColor="@color/md_on_surface"
+                android:textColorHint="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_body"
+                android:fontFamily="monospace" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/scanButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fab_height"
+                android:text="@string/scan_button"
+                android:textColor="@color/md_on_primary"
+                app:backgroundTint="@color/md_primary"
+                app:cornerRadius="@dimen/radius_full"
+                app:icon="@drawable/ic_scan"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconSize="@dimen/fab_icon_size"
+                app:iconTint="@color/md_on_primary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Scanning Progress -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/scanProgressCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/md_surface_container_lowest"
+        app:cardCornerRadius="@dimen/radius_xl"
+        app:cardElevation="1dp"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/score_padding">
+
+            <TextView
+                android:id="@+id/scanLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crawling_page"
+                android:textColor="@color/md_on_surface"
+                android:textSize="@dimen/text_size_title_large"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/scanSubLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/fetching_dom"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_body"
+                android:textStyle="normal" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/scanProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:indicatorColor="@color/md_primary"
+                app:trackColor="@color/md_surface_variant"
+                app:trackCornerRadius="100dp"
+                app:trackThickness="@dimen/progress_height" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/stepText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="Step 1 / 5" />
+
+                <TextView
+                    android:id="@+id/pctText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="0%" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_xl"
+        android:paddingVertical="@dimen/empty_padding_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/empty_icon_size"
+            android:layout_height="@dimen/empty_icon_size"
+            android:src="@drawable/ic_accessibility"
+            app:tint="@color/md_outline_variant"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:text="@string/ready_to_audit"
+            android:textColor="@color/md_on_surface"
+            android:textSize="@dimen/text_size_headline"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:gravity="center"
+            android:text="@string/ready_to_audit_subtitle"
+            android:textColor="@color/md_on_surface_variant"
+            android:textSize="@dimen/text_size_body_large"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <!-- Result Area -->
+    <LinearLayout
+        android:id="@+id/resultArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <!-- Score Banner -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_md"
+            android:layout_marginTop="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/md_primary_container"
+            app:cardCornerRadius="@dimen/radius_xl"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/score_padding">
+
+                <FrameLayout
+                    android:layout_width="@dimen/score_ring_size"
+                    android:layout_height="@dimen/score_ring_size">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/scoreRing"
+                        android:layout_width="@dimen/score_ring_size"
+                        android:layout_height="@dimen/score_ring_size"
+                        android:progress="0"
+                        app:indicatorColor="@color/md_primary"
+                        app:indicatorSize="@dimen/score_ring_size"
+                        app:trackColor="#33005CBB"
+                        app:trackThickness="@dimen/score_ring_stroke" />
+
+                    <TextView
+                        android:id="@+id/scoreNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textColor="@color/md_on_primary_container"
+                        android:textSize="@dimen/score_number_size"
+                        android:textStyle="bold"
+                        tools:text="75" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/score_gap"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/scoreLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_on_primary_container"
+                        android:textSize="@dimen/text_size_headline"
+                        android:textStyle="bold"
+                        tools:text="Good — 75/100" />
+
+                    <TextView
+                        android:id="@+id/scoreUrlLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/md_primary"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="normal"
+                        tools:text="example.com" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/errorChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip_primary"
+                            android:drawableStart="@drawable/ic_error"
+                            android:drawablePadding="4dp"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:textColor="@color/md_primary"
+                            android:textSize="@dimen/text_size_small"
+                            android:textStyle="bold"
+                            tools:text="3 errors" />
+
+                        <TextView
+                            android:id="@+id/warningChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/bg_chip_primary"
+                            android:drawableStart="@drawable/ic_warning"
+                            android:drawablePadding="4dp"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:textColor="@color/md_primary"
+                            android:textSize="@dimen/text_size_small"
+                            android:textStyle="bold"
+                            tools:text="2 warns" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Summary Row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/summary_card_min_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    app:cardBackgroundColor="@color/md_surface_container_lowest"
+                    app:cardCornerRadius="@dimen/radius_lg"
+                    app:cardElevation="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/summary_card_padding">
+
+                        <TextView
+                            android:id="@+id/sumError"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_error"
+                            android:textSize="@dimen/summary_count_size"
+                            android:textStyle="bold"
+                            tools:text="3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/errors"
+                            android:textColor="@color/md_on_surface_variant"
+                            android:textSize="@dimen/summary_label_size"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/summary_card_min_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    app:cardBackgroundColor="@color/md_surface_container_lowest"
+                    app:cardCornerRadius="@dimen/radius_lg"
+                    app:cardElevation="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/summary_card_padding">
+
+                        <TextView
+                            android:id="@+id/sumWarning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_warning"
+                            android:textSize="@dimen/summary_count_size"
+                            android:textStyle="bold"
+                            tools:text="2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/warnings"
+                            android:textColor="@color/md_on_surface_variant"
+                            android:textSize="@dimen/summary_label_size"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/summary_card_min_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    app:cardBackgroundColor="@color/md_surface_container_lowest"
+                    app:cardCornerRadius="@dimen/radius_lg"
+                    app:cardElevation="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/summary_card_padding">
+
+                        <TextView
+                            android:id="@+id/sumInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_secondary"
+                            android:textSize="@dimen/summary_count_size"
+                            android:textStyle="bold"
+                            tools:text="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/info"
+                            android:textColor="@color/md_on_surface_variant"
+                            android:textSize="@dimen/summary_label_size"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/summary_card_min_width"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/md_surface_container_lowest"
+                    app:cardCornerRadius="@dimen/radius_lg"
+                    app:cardElevation="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/summary_card_padding">
+
+                        <TextView
+                            android:id="@+id/sumPassed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_success"
+                            android:textSize="@dimen/summary_count_size"
+                            android:textStyle="bold"
+                            tools:text="38" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/passed"
+                            android:textColor="@color/md_on_surface_variant"
+                            android:textSize="@dimen/summary_label_size"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <!-- Tabs -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:paddingHorizontal="@dimen/spacing_md"
+            app:tabIndicatorColor="@color/md_primary"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/md_primary"
+            app:tabTextColor="@color/md_on_surface_variant">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_all" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_errors" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_warnings" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_info" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_outline_variant" />
+
+        <!-- Filter Pills -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filterChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="@dimen/spacing_sm"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/filter_all" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipImages"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_images" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipContrast"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_contrast" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipForms"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_forms" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipKeyboard"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_keyboard" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipStructure"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/filter_structure" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <!-- Section Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:paddingTop="@dimen/spacing_md"
+            android:paddingBottom="@dimen/spacing_sm">
+
+            <TextView
+                android:id="@+id/issuesCountLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/issues_count"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/export_pdf"
+                android:textColor="@color/md_primary"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <!-- Issues List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/issuesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:clipToPadding="false"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_issue" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_md" />
+
+    </LinearLayout>
+
+</LinearLayout>

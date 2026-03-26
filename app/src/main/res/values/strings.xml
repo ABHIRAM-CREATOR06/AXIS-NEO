@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AXIS Neo</string>
+    <string name="wcag_badge">WCAG 2.2</string>
+    
+    <!-- Home Screen -->
+    <string name="enter_url_label">Enter a URL to audit</string>
+    <string name="url_hint">https://example.com</string>
+    <string name="scan_button">Scan</string>
+    <string name="ready_to_audit">Ready to audit</string>
+    <string name="ready_to_audit_subtitle">Enter a URL above and tap Scan to check for WCAG 2.2 accessibility issues.</string>
+    
+    <!-- Scan Progress -->
+    <string name="scanning">Scanning…</string>
+    <string name="crawling_page">Crawling page…</string>
+    <string name="fetching_dom">Fetching DOM and resources</string>
+    <string name="image_checks">Running image checks…</string>
+    <string name="alt_text_checks">Alt text, decorative detection</string>
+    <string name="contrast_check">Analysing color contrast…</string>
+    <string name="ratio_check">Checking 4.5:1 and 3:1 ratios</string>
+    <string name="keyboard_test">Testing keyboard flow…</string>
+    <string name="tab_order">Tab order and focus visibility</string>
+    <string name="aria_audit">Auditing ARIA &amp; structure…</string>
+    <string name="landmarks_check">Landmarks, roles, headings</string>
+    <string name="step_format">Step %1$d / %2$d</string>
+    <string name="percentage_format">%1$d%%</string>
+    
+    <!-- Score -->
+    <string name="accessibility_score">Accessibility Score</string>
+    <string name="score_format">%1$s — %2$d/100</string>
+    <string name="error_count">%1$d error%2$s</string>
+    <string name="warning_count">%1$d warning%2$s</string>
+    
+    <!-- Summary -->
+    <string name="errors">Errors</string>
+    <string name="warnings">Warnings</string>
+    <string name="info">Info</string>
+    <string name="passed">Passed</string>
+    
+    <!-- Tabs -->
+    <string name="tab_all">All</string>
+    <string name="tab_errors">Errors</string>
+    <string name="tab_warnings">Warnings</string>
+    <string name="tab_info">Info</string>
+    
+    <!-- Filters -->
+    <string name="filter_all">All</string>
+    <string name="filter_images">Images</string>
+    <string name="filter_contrast">Contrast</string>
+    <string name="filter_forms">Forms</string>
+    <string name="filter_keyboard">Keyboard</string>
+    <string name="filter_structure">Structure</string>
+    
+    <!-- Issue Details -->
+    <string name="affected_code">Affected Code</string>
+    <string name="how_to_fix">How to Fix</string>
+    <string name="wcag_criteria">WCAG Criteria</string>
+    <string name="export_pdf">Export PDF</string>
+    <string name="issues_count">%1$d issue%2$s</string>
+    
+    <!-- Navigation -->
+    <string name="nav_scan">Scan</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- History -->
+    <string name="recent_audits">Recent Audits</string>
+    <string name="clear_all">Clear all</string>
+    <string name="today">Today, %1$s</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="history_date_format">%1$s</string>
+    <string name="history_summary">%1$d errors · %2$d warnings · %3$s</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="wcag_level">WCAG Level</string>
+    <string name="wcag_level_subtitle">Currently: AA (Level 2)</string>
+    <string name="check_contrast">Check Contrast Ratio</string>
+    <string name="contrast_subtitle">Flag text with insufficient contrast</string>
+    <string name="alt_text_audit">Alt Text Audit</string>
+    <string name="alt_text_subtitle">Detect missing alt attributes</string>
+    <string name="keyboard_navigation">Keyboard Navigation</string>
+    <string name="keyboard_subtitle">Simulate tab-order traversal</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_subtitle">Switch to dark color scheme</string>
+    <string name="auto_export_pdf">Auto-export PDF</string>
+    <string name="pdf_subtitle">Save report after every scan</string>
+    
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_text">AXIS Neo — Mobile Accessibility Checker\nVersion 1.0.0 · WCAG 2.2 · Built with AXIS Core SDK</string>
+    
+    <!-- Dialog -->
+    <string name="about_dialog_title">About AXIS Neo</string>
+    <string name="about_dialog_body">AXIS Neo is the mobile companion to the AXIS accessibility auditing platform. It performs WCAG 2.2 checks including contrast ratio, alt text, ARIA roles, keyboard focus, landmark structure, and more.\n\nResults are powered by \u003cb\u003eAXIS Core SDK\u003c/b\u003e — a cross-runtime accessibility engine published on npm, NuGet, and crates.io.</string>
+    <string name="got_it">Got it</string>
+</resources>

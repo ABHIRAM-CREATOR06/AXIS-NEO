@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing_md"
+    android:layout_marginVertical="@dimen/spacing_xs"
+    app:cardBackgroundColor="@color/md_surface_container_lowest"
+    app:cardCornerRadius="@dimen/radius_lg"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/history_item_padding">
+
+        <TextView
+            android:id="@+id/historyScore"
+            android:layout_width="@dimen/history_score_size"
+            android:layout_height="@dimen/history_score_size"
+            android:background="@drawable/bg_score_circle"
+            android:gravity="center"
+            android:textColor="@color/md_on_surface"
+            android:textSize="@dimen/history_score_text_size"
+            android:textStyle="bold"
+            tools:text="92" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/history_item_gap"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/historyUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="monospace"
+                android:maxLines="1"
+                android:textColor="@color/md_on_surface"
+                android:textSize="@dimen/history_url_size"
+                android:textStyle="normal"
+                tools:text="https://material.io" />
+
+            <TextView
+                android:id="@+id/historyMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/history_meta_size"
+                android:textStyle="normal"
+                tools:text="3 errors · 2 warnings · Today, 2:14 PM" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/issue_chevron_size"
+            android:layout_height="@dimen/issue_chevron_size"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="@color/md_on_surface_variant"
+            android:contentDescription="@null" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

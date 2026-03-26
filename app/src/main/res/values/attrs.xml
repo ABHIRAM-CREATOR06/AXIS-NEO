@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom theme attributes for Material Design 3 colors -->
+    <attr name="surfaceContainerLowest" format="color" />
+    <attr name="surfaceContainerLow" format="color" />
+    <attr name="surfaceContainer" format="color" />
+    <attr name="surfaceContainerHigh" format="color" />
+    <attr name="successColor" format="color" />
+    <attr name="successContainerColor" format="color" />
+    <attr name="warningColor" format="color" />
+    <attr name="warningContainerColor" format="color" />
+    <attr name="onSuccessContainerColor" format="color" />
+    <attr name="onWarningContainerColor" format="color" />
+</resources>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/issueCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_sm"
+    app:cardBackgroundColor="@color/md_surface_container_lowest"
+    app:cardCornerRadius="@dimen/radius_lg"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/issueHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/issue_card_padding">
+
+            <FrameLayout
+                android:id="@+id/issueIconContainer"
+                android:layout_width="@dimen/issue_icon_size"
+                android:layout_height="@dimen/issue_icon_size">
+
+                <ImageView
+                    android:id="@+id/issueIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="9dp"
+                    tools:src="@drawable/ic_error"
+                    android:contentDescription="@null" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/issue_card_gap"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/issueRule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="WCAG 1.1.1 (Level A)" />
+
+                <TextView
+                    android:id="@+id/issueTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/md_on_surface"
+                    android:textSize="@dimen/text_size_title"
+                    android:textStyle="normal"
+                    tools:text="Image missing alt attribute" />
+
+                <TextView
+                    android:id="@+id/issueDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="normal"
+                    tools:text="3 images have no alt attribute" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/issueChevron"
+                android:layout_width="@dimen/issue_chevron_size"
+                android:layout_height="@dimen/issue_chevron_size"
+                android:src="@drawable/ic_expand"
+                app:tint="@color/md_on_surface_variant"
+                android:contentDescription="@null" />
+
+        </LinearLayout>
+
+        <!-- Expanded Details -->
+        <LinearLayout
+            android:id="@+id/issueDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/md_surface_container_low"
+            android:orientation="vertical"
+            android:padding="@dimen/issue_detail_padding"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/affected_code"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:scrollbars="none">
+
+                <TextView
+                    android:id="@+id/issueCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_code_snippet"
+                    android:fontFamily="monospace"
+                    android:padding="@dimen/code_snippet_padding"
+                    android:textColor="#c5c6d0"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="&lt;img src=hero.png class=hero-img&gt;" />
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/how_to_fix"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/issueFix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/md_on_surface"
+                android:textSize="@dimen/text_size_body"
+                android:textStyle="normal"
+                tools:text="Add alt attribute to all images" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/wcag_criteria"
+                android:textColor="@color/md_on_surface_variant"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/wcagChips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
